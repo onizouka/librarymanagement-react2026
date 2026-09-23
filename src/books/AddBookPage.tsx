@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router';
 
 import type { Book } from './book';
-import { bookService } from './book-service';
+import { bookServiceExport } from './book-service-export';
 
 export function AddBookPage() {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ export function AddBookPage() {
       totalCopies,
     };
 
-    bookService.addBook(newBook);
+    bookServiceExport.addBook(newBook);
     setTitle('');
     setAuthor('');
     setTotalCopies(0);

@@ -1,16 +1,16 @@
 import { useState } from 'react';
 
-import { bookService } from './book-service';
+import { bookServiceExport } from './book-service-export';
 
 export function BookListPage() {
-  const [books, setBooks] = useState(() => [...bookService.getBooks()]);
+  const [books, setBooks] = useState(() => [...bookServiceExport.getBooks()]);
 
   function refreshBooks() {
-    setBooks([...bookService.getBooks()]);
+    setBooks([...bookServiceExport.getBooks()]);
   }
 
   function borrowBook(id: number) {
-    const success = bookService.borrowBook(id);
+    const success = bookServiceExport.borrowBook(id);
     if (!success) {
       alert('No copies available to borrow.');
     }
@@ -18,7 +18,7 @@ export function BookListPage() {
   }
 
   function returnBook(id: number) {
-    const success = bookService.returnBook(id);
+    const success = bookServiceExport.returnBook(id);
     if (!success) {
       alert('All copies are already returned.');
     }
@@ -26,7 +26,7 @@ export function BookListPage() {
   }
 
   function deleteBook(id: number) {
-    bookService.deleteBook(id);
+    bookServiceExport.deleteBook(id);
     refreshBooks();
   }
 

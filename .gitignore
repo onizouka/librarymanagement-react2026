@@ -6,4 +6,5 @@ node_modules
 !.vscode/settings.json
 .DS_Store
 *.local
+./vitest
 package-lock.json
